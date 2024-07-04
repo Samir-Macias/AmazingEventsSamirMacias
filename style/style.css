@@ -1,0 +1,18 @@
+.image_logo{
+    width: 35%;
+}
+.navbar{
+    background-color:#a1a6aa;
+}
+.nav-link:hover {
+    font-weight: bold;
+}
+.d-block{
+    width: 100vw;
+    height: 25vh;
+    object-fit: cover;
+}
+h3{
+  font-size: 8vw;  
+   color: rgba(223, 0, 104, 0.692);
+}

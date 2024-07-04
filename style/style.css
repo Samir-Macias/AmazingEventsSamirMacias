@@ -16,3 +16,7 @@ h3{
   font-size: 8vw;  
    color: rgba(223, 0, 104, 0.692);
 }
+.checkbox{
+    padding-top: 3vw;
+    margin-left: 3vh;
+}

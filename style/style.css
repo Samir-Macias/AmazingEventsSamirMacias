@@ -41,3 +41,13 @@ h3 {
     height: 25vh;
    
 }
+.footer{
+    padding-left: 5vh;
+    padding-right: 5vh;
+    margin-top: 5vh;
+    background-color: #de757169;
+}
+.image-social-media{
+    width: 3vw;
+    margin: 8px;
+}

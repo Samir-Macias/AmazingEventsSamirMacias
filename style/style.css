@@ -19,4 +19,9 @@ h3{
 .checkbox{
     padding-top: 3vw;
     margin-left: 3vh;
+    margin-right: 3vh;
+}
+.card{
+    margin-left: 3vh;
+    margin-right: 3vh;
 }

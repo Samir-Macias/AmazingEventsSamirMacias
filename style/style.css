@@ -1,27 +1,42 @@
-.image_logo{
+.image_logo {
     width: 35%;
 }
-.navbar{
-    background-color:#a1a6aa;
+
+.navbar {
+    background-color: #a1a6aa;
 }
+
 .nav-link:hover {
     font-weight: bold;
 }
-.d-block{
+
+.d-block {
     width: 100vw;
     height: 25vh;
     object-fit: cover;
 }
-h3{
-  font-size: 8vw;  
-   color: rgba(223, 0, 104, 0.692);
+
+h3 {
+    font-size: 8vw;
+    color: rgba(223, 0, 104, 0.692);
 }
-.checkbox{
+
+.checkbox {
     padding-top: 3vw;
     margin-left: 3vh;
     margin-right: 3vh;
 }
-.card{
+
+.card {
     margin-left: 3vh;
     margin-right: 3vh;
+}
+
+.card {
+    width: 18rem
+}
+
+.card-img-top {
+    width: h-50;
+    object-fit: cover;
 }

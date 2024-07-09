@@ -48,6 +48,19 @@ h3 {
     background-color: #de757169;
 }
 .image-social-media{
-    width: 7vw;
+    width: 50px;
     margin: 8px;
+}
+main{
+    min-height: 79vh;
+}
+.button_contact{
+    margin-left: 24vh;
+}
+.table{
+    margin-top: 5vh;
+}
+
+.image_stats{
+width: 5px;
 }

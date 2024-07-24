@@ -8,6 +8,22 @@
 
 .nav-link:hover {
     font-weight: bold;
+    color: azure;
+    border: solid 3px black ;
+    border-radius: 20px;
+    margin-left: 10px;
+    background-color: rgba(223, 0, 104, 0.692);
+
+}
+
+.nav-link{
+    border: solid 3px rgba(223, 0, 104, 0.692) ;
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    margin-left: 10px;
+    font-weight: bold;
+    
 }
 
 .d-block {
@@ -23,8 +39,9 @@ h3 {
 
 .checkbox {
     padding-top: 3vw;
-    margin-left: 3vh;
+    margin-left: 2vh;
     margin-right: 3vh;
+   
 }
 
 .card {

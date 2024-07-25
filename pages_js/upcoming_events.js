@@ -205,19 +205,26 @@ for (let i = 0; i < data.events.length; i++) {
     if (eventDate > currentDate) {
         futureEvents.push(event);
         let tarjetas = document.createElement("div")
-        tarjetas.className = "tarjetas card d-flex justify-content-center mt-3"
-        tarjetas.innerHTML = `<img src="${data.events[i].image} " alt="">
-                <h5 class="card-title">${data.events[i].name}</h5>
-                <h6>Date: ${data.events[i].date}</h6>
-                <p>Description: ${data.events[i].description}</p>
-                <p>Category: ${data.events[i].category}</p>
-                <p>Place: ${data.events[i].place}</p>
-                <p>Capacity: ${data.events[i].capacity}</p>
-                <p>Assitance or Estimate: ${data.events[i].assistance || data.events[i].estimate}</p>
-                <p>Price: ${data.events[i].price}</p>
-                <p>${data.events[i].__v}</p>
-                <p>${data.events[i]._id}</p>
-                <a href="../pages/details.html" class="btn btn-primary">Details</a>`
+        tarjetas.className = "tarjetas"
+        tarjetas.innerHTML = `
+        </div>
+             <div class="card d-flex justify-content-center mt3  border-info bg-secondary text-light">
+                <img src= ${data.events[i].image} class="card-img " alt="Not found">
+                <div class="card-body">
+                    <h5 class="card-title fs-4"> ${data.events[i].name} </h5>
+                    <p class="card-text fs-6"> ${data.events[i].description} </p>
+                    <div class = "fs-6 ">
+                    <p class="card-text mb-0"><span class=" fw-bold">Category:</span> ${data.events[i].category}</p>
+                <p class="card-text mb-0"> <span class=" fw-bold">Place:</span> ${data.events[i].place}</p>
+                <p class="card-text mb-0"><span class=" fw-bold">Capacity:</span>  ${data.events[i].capacity}</p>
+                <p class="card-text mb-0"><span class=" fw-bold">Date:</span>  ${data.events[i].date}</p>
+                  </div>
+                <div class="d-flex justify-content-between mt-2 border-top align-items-center pt-3  border-info border-start-5">
+                        <p class=" mt-2 fw-bold">Price: ${data.events[i].price} $ </p>
+                        <a href="../pages/details.html" class="btn btn-primary">Details</a>
+                    </div>
+                </div>
+        </div>`
 
         contenedor.appendChild(tarjetas)
     }

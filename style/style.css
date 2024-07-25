@@ -44,20 +44,35 @@ h3 {
    
 }
 
+.tarjetas > img{
+    max-width: 20rem;
+   height: 12rem;
+   
+}
+.tarjetas{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-color:#a1a6aa83 ;
+   
+   
+}
+#contenedor{
+    margin-top: 5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 .card {
+    max-width: 20rem;
     margin-left: 3vh;
     margin-right: 3vh;
 }
-
-.card {
-    max-width: 20rem
+.card-title{
+    font-weight: bold;
+    font-size: 3vh;
+    padding-left: 5px;
 }
 
-.card-img-top {
-    width: 100%;
-    height: 25vh;
-   
-}
+
 .footer{
     padding-left: 5vh;
     padding-right: 5vh;

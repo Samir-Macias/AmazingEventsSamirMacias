@@ -217,18 +217,19 @@ function crearTarjetas(filtradas) {
         tarjetas.className = "tarjetas";
         tarjetas.innerHTML = `
             <div class="card d-flex justify-content-center mt3 border-info bg-secondary text-light">
-                <img src="${event.image}" class="card-img" alt="Not found">
+                <img src= ${event.image} class="card-img " alt="Not found">
                 <div class="card-body">
-                    <h5 class="card-title fs-4">${event.name}</h5>
-                    <p class="card-text fs-6">${event.description}</p>
-                    <div class="fs-6">
-                        <p class="card-text mb-0"><span class="fw-bold">Category:</span> ${event.category}</p>
-                        <p class="card-text mb-0"><span class="fw-bold">Place:</span> ${event.place}</p>
-                        <p class="card-text mb-0"><span class="fw-bold">Capacity:</span> ${event.capacity}</p>
-                        <p class="card-text mb-0"><span class="fw-bold">Date:</span> ${event.date}</p>
+                <div class= "main-card">
+                <h5 class="card-title fs-4"> ${event.name} </h5>
+                    <p class="card-text fs-6"> ${event.description} </p>
+                </div>
+                    <div class="fs-6 ">
+                        <p class="card-text mb-0"><span class=" fw-bold">Category:</span> ${event.category}</p>
+                        <p class="card-text mb-0"> <span class=" fw-bold">Place:</span> ${event.place}</p>
+                        <p class="card-text mb-0"><span class=" fw-bold">Capacity:</span> ${event.capacity}</p>
                     </div>
                     <div class="d-flex justify-content-between mt-2 border-top align-items-center pt-3 border-info border-start-5">
-                        <p class="mt-2 fw-bold">Price: ${event.price} $</p>
+                        <p class=" mt-2 fw-bold">Price: ${event.price} $ </p>
                         <a href="../pages/details.html?id=${event._id}" class="btn btn-primary">Details</a>
                     </div>
                 </div>
@@ -237,7 +238,7 @@ function crearTarjetas(filtradas) {
     });
 }
 
-// Función para obtener las categorías únicas
+
 function getUniqueCategories(events) {
     const categories = new Set();
     events.forEach(event => categories.add(event.category));
@@ -246,7 +247,7 @@ function getUniqueCategories(events) {
 
 // Función para crear checkboxes dinámicamente
 function createCheckboxes(categories) {
-    checkboxContainer.innerHTML = ""; // Limpiar contenedor
+    checkboxContainer.innerHTML = ""; 
 
     categories.forEach(category => {
         let label = document.createElement("label");
@@ -277,16 +278,15 @@ function applyFilters() {
     crearTarjetas(filteredEvents);
 }
 
-// Inicialización de la página
+
 document.addEventListener("DOMContentLoaded", function() {
-    // Filtrar eventos futuros y crear tarjetas
+
     upcomingEvents = data.events.filter(event => new Date(event.date) > currentDate);
     
     let categories = getUniqueCategories(upcomingEvents);
     createCheckboxes(categories);
 
     crearTarjetas(upcomingEvents);
-    
-    // Añadir evento de búsqueda
+   
     searchInput.addEventListener("input", applyFilters);
 });

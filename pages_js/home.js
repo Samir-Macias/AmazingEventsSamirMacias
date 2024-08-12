@@ -214,8 +214,10 @@ function crearTarjetas(filtradas) {
             <div class="card d-flex justify-content-center mt3 border-info bg-secondary text-light">
                 <img src= ${filtradas[i].image} class="card-img " alt="Not found">
                 <div class="card-body">
-                    <h5 class="card-title fs-4"> ${filtradas[i].name} </h5>
+                <div class= "main-card">
+                <h5 class="card-title fs-4"> ${filtradas[i].name} </h5>
                     <p class="card-text fs-6"> ${filtradas[i].description} </p>
+                </div>
                     <div class="fs-6 ">
                         <p class="card-text mb-0"><span class=" fw-bold">Category:</span> ${filtradas[i].category}</p>
                         <p class="card-text mb-0"> <span class=" fw-bold">Place:</span> ${filtradas[i].place}</p>
@@ -236,7 +238,7 @@ let categoriasUnicas = [...new Set(data.events.map(evento => evento.category))];
 let checkboxContainer = document.getElementById('checkbox');
 
 categoriasUnicas.forEach(categoria => {
-    
+
     let checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
     checkbox.id = categoria;
@@ -244,13 +246,13 @@ categoriasUnicas.forEach(categoria => {
     checkbox.value = categoria;
     checkbox.classList.add('form-check-input', 'me-2');
 
-   
+
     let label = document.createElement('label');
     label.htmlFor = categoria;
     label.textContent = categoria;
     label.classList.add('form-check-label', 'me-3');
 
-   
+
     checkboxContainer.appendChild(checkbox);
     checkboxContainer.appendChild(label);
 });
@@ -259,15 +261,15 @@ categoriasUnicas.forEach(categoria => {
 function filtrarPorCheckboxes() {
     let checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
     let categoriasSeleccionadas = Array.from(checkboxes).map(checkbox => checkbox.value);
-    
+
     if (categoriasSeleccionadas.length === 0) return data.events;
-    
+
     return data.events.filter(evento => categoriasSeleccionadas.includes(evento.category));
 }
 
 function filtrarPorTexto(eventosFiltrados) {
     let inputTexto = document.querySelector('input[type="search"]').value.toLowerCase();
-    
+
     return eventosFiltrados.filter(evento =>
         evento.name.toLowerCase().includes(inputTexto) ||
         evento.description.toLowerCase().includes(inputTexto)

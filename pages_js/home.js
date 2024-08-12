@@ -246,12 +246,10 @@ categoriasUnicas.forEach(categoria => {
     checkbox.value = categoria;
     checkbox.classList.add('form-check-input', 'me-2');
 
-
     let label = document.createElement('label');
     label.htmlFor = categoria;
     label.textContent = categoria;
     label.classList.add('form-check-label', 'me-3');
-
 
     checkboxContainer.appendChild(checkbox);
     checkboxContainer.appendChild(label);
@@ -281,7 +279,6 @@ function aplicarFiltros() {
     eventosFiltrados = filtrarPorTexto(eventosFiltrados);
     crearTarjetas(eventosFiltrados);
 }
-
 
 document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
     checkbox.addEventListener('change', aplicarFiltros);

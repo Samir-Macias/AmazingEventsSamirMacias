@@ -238,7 +238,6 @@ function crearTarjetas(filtradas) {
     });
 }
 
-
 function getUniqueCategories(events) {
     const categories = new Set();
     events.forEach(event => categories.add(event.category));
@@ -277,7 +276,6 @@ function applyFilters() {
 
     crearTarjetas(filteredEvents);
 }
-
 
 document.addEventListener("DOMContentLoaded", function() {
 

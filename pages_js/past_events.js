@@ -284,10 +284,8 @@ document.addEventListener("DOMContentLoaded", function () {
     let categories = getUniqueCategories(data.events);
     createCheckboxes(categories);
 
-
     pastEvent = data.events.filter(event => new Date(event.date) < currentDate);
     crearTarjetas(pastEvent);
-
 
     searchInput.addEventListener("input", applyFilters);
 });

@@ -195,12 +195,11 @@ const data = {
     ],
 };
 
-    // Obtener el ID del evento desde la URL
+   
 let params = new URLSearchParams(window.location.search);
 let eventId = params.get('id');
 
-// Supongamos que tus datos están en un archivo llamado `data.js` que has importado
-let event = data.events.find(event => event._id === eventId); // Cambia _id a id si es necesario
+let event = data.events.find(event => event._id === eventId); 
 
 if (event) {
     document.getElementById('event-title').textContent = event.name;
@@ -213,6 +212,6 @@ if (event) {
     document.getElementById('event-estimate').textContent = `Estimate: ${event.estimate}`;
     document.getElementById('event-price').textContent = `Price: ${event.price} $`;
 } else {
-    // Si no se encuentra el evento, mostrar un mensaje de error
+  
     document.getElementById('event-title').textContent = "Event not found";
 }

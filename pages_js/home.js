@@ -195,31 +195,97 @@ const data = {
     ],
 };
 
-let contenedor = document.getElementById("contenedor")
-for (let i = 0; i < data.events.length; i++) {
-    let tarjetas = document.createElement("div")
-    tarjetas.className = "tarjetas"
-    tarjetas.innerHTML = `
-        </div>
-             <div class="card d-flex justify-content-center mt3  border-info bg-secondary text-light">
-                <img src= ${data.events[i].image} class="card-img " alt="Not found">
+// Tajetas dinamicas
+function crearTarjetas(filtradas) {
+    contenedor.innerHTML = "";
+
+    if (filtradas.length === 0) {
+        let mensaje = document.createElement("p");
+        mensaje.className = "text-center fs-4 mt-4";
+        mensaje.textContent = "We're sorry, but no events match your search criteria. Please try adjusting your filters.";
+        contenedor.appendChild(mensaje);
+        return;
+    }
+
+    for (let i = 0; i < filtradas.length; i++) {
+        let tarjetas = document.createElement("div");
+        tarjetas.className = "tarjetas";
+        tarjetas.innerHTML = `
+            <div class="card d-flex justify-content-center mt3 border-info bg-secondary text-light">
+                <img src= ${filtradas[i].image} class="card-img " alt="Not found">
                 <div class="card-body">
-                    <h5 class="card-title fs-4"> ${data.events[i].name} </h5>
-                    <p class="card-text fs-6"> ${data.events[i].description} </p>
-                    <div class = "fs-6 ">
-                    <p class="card-text mb-0"><span class=" fw-bold">Category:</span> ${data.events[i].category}</p>
-                <p class="card-text mb-0"> <span class=" fw-bold">Place:</span> ${data.events[i].place}</p>
-                <p class="card-text mb-0"><span class=" fw-bold">Capacity:</span>  ${data.events[i].capacity}</p>
-                  </div>
-                <div class="d-flex justify-content-between mt-2 border-top align-items-center pt-3  border-info border-start-5">
-                        <p class=" mt-2 fw-bold">Price: ${data.events[i].price} $ </p>
-                        <a href="../pages/details.html" class="btn btn-primary">Details</a>
+                    <h5 class="card-title fs-4"> ${filtradas[i].name} </h5>
+                    <p class="card-text fs-6"> ${filtradas[i].description} </p>
+                    <div class="fs-6 ">
+                        <p class="card-text mb-0"><span class=" fw-bold">Category:</span> ${filtradas[i].category}</p>
+                        <p class="card-text mb-0"> <span class=" fw-bold">Place:</span> ${filtradas[i].place}</p>
+                        <p class="card-text mb-0"><span class=" fw-bold">Capacity:</span> ${filtradas[i].capacity}</p>
+                    </div>
+                    <div class="d-flex justify-content-between mt-2 border-top align-items-center pt-3 border-info border-start-5">
+                        <p class=" mt-2 fw-bold">Price: ${filtradas[i].price} $ </p>
+                        <a href="../pages/details.html?id=${filtradas[i]._id}" class="btn btn-primary">Details</a>
                     </div>
                 </div>
-        </div>`
+            </div>`;
+        contenedor.appendChild(tarjetas);
+    }
+}
+// checkbox dinamicos
 
+let categoriasUnicas = [...new Set(data.events.map(evento => evento.category))];
+let checkboxContainer = document.getElementById('checkbox');
 
-    contenedor.appendChild(tarjetas)
+categoriasUnicas.forEach(categoria => {
+    
+    let checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.id = categoria;
+    checkbox.name = 'categoria';
+    checkbox.value = categoria;
+    checkbox.classList.add('form-check-input', 'me-2');
 
+   
+    let label = document.createElement('label');
+    label.htmlFor = categoria;
+    label.textContent = categoria;
+    label.classList.add('form-check-label', 'me-3');
+
+   
+    checkboxContainer.appendChild(checkbox);
+    checkboxContainer.appendChild(label);
+});
+
+// Filtro por checkbox y por texto
+function filtrarPorCheckboxes() {
+    let checkboxes = document.querySelectorAll('input[type="checkbox"]:checked');
+    let categoriasSeleccionadas = Array.from(checkboxes).map(checkbox => checkbox.value);
+    
+    if (categoriasSeleccionadas.length === 0) return data.events;
+    
+    return data.events.filter(evento => categoriasSeleccionadas.includes(evento.category));
 }
 
+function filtrarPorTexto(eventosFiltrados) {
+    let inputTexto = document.querySelector('input[type="search"]').value.toLowerCase();
+    
+    return eventosFiltrados.filter(evento =>
+        evento.name.toLowerCase().includes(inputTexto) ||
+        evento.description.toLowerCase().includes(inputTexto)
+    );
+}
+
+function aplicarFiltros() {
+    let eventosFiltrados = filtrarPorCheckboxes();
+    eventosFiltrados = filtrarPorTexto(eventosFiltrados);
+    crearTarjetas(eventosFiltrados);
+}
+
+
+document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+    checkbox.addEventListener('change', aplicarFiltros);
+});
+
+document.querySelector('input[type="search"]').addEventListener('input', aplicarFiltros);
+
+
+crearTarjetas(data.events);

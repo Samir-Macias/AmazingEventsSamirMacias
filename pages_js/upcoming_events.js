@@ -194,38 +194,99 @@ const data = {
         },
     ],
 };
-let currentDate = new Date(data.currentDate)
-let futureEvents = []
-let contenedor = document.getElementById("contenedor")
+let currentDate = new Date(data.currentDate);
+let upcomingEvents = [];
+let contenedor = document.getElementById("contenedor");
+let checkboxContainer = document.getElementById("checkbox-container");
+let searchInput = document.getElementById("search-input");
 
-for (let i = 0; i < data.events.length; i++) {
-    let event = data.events[i];
-    let eventDate = new Date(event.date);
+// Función para crear tarjetas
+function crearTarjetas(filtradas) {
+    contenedor.innerHTML = "";
 
-    if (eventDate > currentDate) {
-        futureEvents.push(event);
-        let tarjetas = document.createElement("div")
-        tarjetas.className = "tarjetas"
+    if (filtradas.length === 0) {
+        let mensaje = document.createElement("p");
+        mensaje.className = "text-center fs-4 mt-4";
+        mensaje.textContent = "We're sorry, but no events match your search criteria. Please try adjusting your filters.";
+        contenedor.appendChild(mensaje);
+        return;
+    }
+
+    filtradas.forEach(event => {
+        let tarjetas = document.createElement("div");
+        tarjetas.className = "tarjetas";
         tarjetas.innerHTML = `
-        </div>
-             <div class="card d-flex justify-content-center mt3  border-info bg-secondary text-light">
-                <img src= ${data.events[i].image} class="card-img " alt="Not found">
+            <div class="card d-flex justify-content-center mt3 border-info bg-secondary text-light">
+                <img src="${event.image}" class="card-img" alt="Not found">
                 <div class="card-body">
-                    <h5 class="card-title fs-4"> ${data.events[i].name} </h5>
-                    <p class="card-text fs-6"> ${data.events[i].description} </p>
-                    <div class = "fs-6 ">
-                    <p class="card-text mb-0"><span class=" fw-bold">Category:</span> ${data.events[i].category}</p>
-                <p class="card-text mb-0"> <span class=" fw-bold">Place:</span> ${data.events[i].place}</p>
-                <p class="card-text mb-0"><span class=" fw-bold">Capacity:</span>  ${data.events[i].capacity}</p>
-                <p class="card-text mb-0"><span class=" fw-bold">Date:</span>  ${data.events[i].date}</p>
-                  </div>
-                <div class="d-flex justify-content-between mt-2 border-top align-items-center pt-3  border-info border-start-5">
-                        <p class=" mt-2 fw-bold">Price: ${data.events[i].price} $ </p>
-                        <a href="../pages/details.html" class="btn btn-primary">Details</a>
+                    <h5 class="card-title fs-4">${event.name}</h5>
+                    <p class="card-text fs-6">${event.description}</p>
+                    <div class="fs-6">
+                        <p class="card-text mb-0"><span class="fw-bold">Category:</span> ${event.category}</p>
+                        <p class="card-text mb-0"><span class="fw-bold">Place:</span> ${event.place}</p>
+                        <p class="card-text mb-0"><span class="fw-bold">Capacity:</span> ${event.capacity}</p>
+                        <p class="card-text mb-0"><span class="fw-bold">Date:</span> ${event.date}</p>
+                    </div>
+                    <div class="d-flex justify-content-between mt-2 border-top align-items-center pt-3 border-info border-start-5">
+                        <p class="mt-2 fw-bold">Price: ${event.price} $</p>
+                        <a href="../pages/details.html?id=${event._id}" class="btn btn-primary">Details</a>
                     </div>
                 </div>
-        </div>`
-
-        contenedor.appendChild(tarjetas)
-    }
+            </div>`;
+        contenedor.appendChild(tarjetas);
+    });
 }
+
+// Función para obtener las categorías únicas
+function getUniqueCategories(events) {
+    const categories = new Set();
+    events.forEach(event => categories.add(event.category));
+    return Array.from(categories);
+}
+
+// Función para crear checkboxes dinámicamente
+function createCheckboxes(categories) {
+    checkboxContainer.innerHTML = ""; // Limpiar contenedor
+
+    categories.forEach(category => {
+        let label = document.createElement("label");
+        label.className = "form-check-label";
+        let checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.className = "form-check-input";
+        checkbox.value = category;
+        checkbox.addEventListener("change", applyFilters);
+
+        label.appendChild(checkbox);
+        label.appendChild(document.createTextNode(category));
+        checkboxContainer.appendChild(label);
+    });
+}
+
+// Función para aplicar filtros por texto y checkbox
+function applyFilters() {
+    let checkedCategories = Array.from(document.querySelectorAll('.form-check-input:checked')).map(cb => cb.value);
+    let searchText = searchInput.value.toLowerCase();
+
+    let filteredEvents = upcomingEvents.filter(event => {
+        let matchesCategory = checkedCategories.length === 0 || checkedCategories.includes(event.category);
+        let matchesText = event.name.toLowerCase().includes(searchText) || event.description.toLowerCase().includes(searchText);
+        return matchesCategory && matchesText;
+    });
+
+    crearTarjetas(filteredEvents);
+}
+
+// Inicialización de la página
+document.addEventListener("DOMContentLoaded", function() {
+    // Filtrar eventos futuros y crear tarjetas
+    upcomingEvents = data.events.filter(event => new Date(event.date) > currentDate);
+    
+    let categories = getUniqueCategories(upcomingEvents);
+    createCheckboxes(categories);
+
+    crearTarjetas(upcomingEvents);
+    
+    // Añadir evento de búsqueda
+    searchInput.addEventListener("input", applyFilters);
+});

@@ -26,6 +26,7 @@ function crearTarjetas(eventosFiltrados) {
                         <p class="card-text mb-0"><span class=" fw-bold">Category:</span> ${event.category}</p>
                         <p class="card-text mb-0"> <span class=" fw-bold">Place:</span> ${event.place}</p>
                         <p class="card-text mb-0"><span class=" fw-bold">Capacity:</span> ${event.capacity}</p>
+                        <p class="card-text mb-0"><span class=" fw-bold">Date:</span> ${event.date}</p>
                     </div>
                     <div class="d-flex justify-content-between mt-2 border-top align-items-center pt-3 border-info border-start-5">
                         <p class=" mt-2 fw-bold">Price: ${event.price} $ </p>

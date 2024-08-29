@@ -58,7 +58,7 @@ function crearTarjetas(filtradas) {
     });
 }
 
-function getUniqueCategories (events){
+function getUniqueCategories(events) {
     let categories = new Set(events.map(event => event.category));
     return Array.from(categories)
 }

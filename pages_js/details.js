@@ -1,11 +1,10 @@
-let url = "https://aulamindhub.github.io/amazing-api/events.json"
 let params = new URLSearchParams(window.location.search);
 let eventId = params.get('id');
 
 if (eventId) {
 
 
-    fetch(url)
+    fetch('https://aulamindhub.github.io/amazing-api/events.json')
         .then(res => res.json())
         .then(data => {
             let event = data.events.find(event => event._id == eventId);

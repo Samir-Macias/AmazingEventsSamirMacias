@@ -95,93 +95,70 @@
                 <span class="visually-hidden">Next</span>
             </button>
         </div>
-        <!-- TABLA -->
+        <!-- TABLAS-->
 
-        <!-- tabla 1 -->
-        <div class="d-flex flex-column align-items-center">
+         <!-- tabla 1 -->
+         <div class="d-flex flex-column align-items-center mt-4">
             <div class="table-responsive col-10">
                 <table class="table table-striped table-bordered">
                     <thead>
-                        <tr class="table-active">
-                            <th colspan="3">
-                                Events Statistics
-                            </th>
+                        <tr class="table-active fs-4">
+                            <th colspan="3">Events Statistics</th>
+                        </tr>
+                        <tr>
+                            <th>Events with highest % of assistance</th>
+                            <th>Events with lowest % of assistance</th>
+                            <th>Events with larger capacity</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Events with highest % of assistance</td>
-                            <td>Events with lowest % of assistance</td>
-                            <td>Events with larger capacity</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
+                            <td id="highest-attendance">Events with highest % of assistance</td>
+                            <td id="lowest-attendance">Events with lowest % of assistance</td>
+                            <td id="largest-capacity">Events with larger capacity</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
             <!-- tabla 2 -->
-            <div class="table-responsive col-10">
-                <table class="table table-striped table-bordered">
+            <div class="table-responsive col-10 mt-4">
+                <table id="upcoming-category-stats" class="table table-striped table-bordered">
                     <thead>
-                        <tr class="table-active">
-                            <th colspan="3">
-                                Upcoming events statistics by category
-                            </th>
+                        <tr class="table-active fs-4">
+                            <th colspan="3">Upcoming events statistics by category</th>
+                        </tr>
+                        <tr>
+                            <th>Categories</th>
+                            <th>Revenues</th>
+                            <th>Percentage of assistance</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>categories</td>
-                            <td>Revenues</td>
-                            <td>Porcentage of assistance</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
+                        <!-- Las filas se insertarán aquí dinámicamente -->
                     </tbody>
                 </table>
             </div>
             <!-- tabla 3 -->
-            <div class="table-responsive col-10 d-flex justify-content-center">
-                <table class="table table-striped table-bordered">
+            <div class="table-responsive col-10 d-flex justify-content-center mt-4">
+                <table id="past-category-stats" class="table table-striped table-bordered">
                     <thead>
-                        <tr class="table-active">
-                            <th colspan="3">
-                                Past events statistics by category
-                            </th>
+                        <tr class="table-active fs-4">
+                            <th colspan="3">Past events statistics by category</th>
+                        </tr>
+                        <tr>
+                            <th>Categories</th>
+                            <th>Revenues</th>
+                            <th>Percentage of assistance</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>categories</td>
-                            <td>Revenues</td>
-                            <td>Porcentage of assistance</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                        </tr>
+                        <!-- Las filas se insertarán aquí dinámicamente -->
                     </tbody>
                 </table>
             </div>
         </div>
     </main>
+
     <!-- footer -->
     <footer>
         <div class="footer d-flex justify-content-between align-items-center ">
@@ -201,6 +178,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
         integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
         crossorigin="anonymous"></script>
+        <script src="../pages_js/stats.js" type="module"></script>
 </body>
 
 </html>

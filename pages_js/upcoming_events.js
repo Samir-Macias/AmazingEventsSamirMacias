@@ -1,9 +1,8 @@
 import { crearTarjetas, getUniqueCategories, createCheckboxes, applyFilters, upcomingPastEvents } from "../modules/functions.js"
 
-let url = "https://aulamindhub.github.io/amazing-api/events.json"
 let searchInput = document.getElementById("search-input");
 
-fetch(url)
+fetch('https://aulamindhub.github.io/amazing-api/events.json')
     .then(res => res.json())
     .then(data => {
         let currentDate = (data.currentDate);

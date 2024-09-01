@@ -1,4 +1,4 @@
-import { crearTarjetas, getUniqueCategories, createCheckboxes, applyFilters, } from "../modules/functions.js";
+import { crearTarjetas, getUniqueCategories, createCheckboxes, applyFilters } from "../modules/functions.js";
 
 let url = "https://aulamindhub.github.io/amazing-api/events.json";
 let allEvents = [];

@@ -2,30 +2,6 @@
     width: 35%;
 }
 
-.navbar {
-    background-color: #a1a6aa;
-}
-
-.nav-link:hover {
-    font-weight: bold;
-    color: azure;
-    border: solid 3px black ;
-    border-radius: 20px;
-    margin-left: 10px;
-    background-color: rgba(223, 0, 104, 0.692);
-
-}
-
-.nav-link{
-    border: solid 3px rgba(223, 0, 104, 0.692) ;
-    display: flex;
-    align-items: center;
-    border-radius: 20px;
-    margin-left: 10px;
-    font-weight: bold;
-    
-}
-
 .d-block {
     width: 100vw;
     height: 25vh;
@@ -34,63 +10,124 @@
 
 h3 {
     font-size: 7vw;
-    color: rgba(223, 0, 104, 0.692);
+    color: rgba(223, 0, 104, 0.767);
 }
 
 .checkbox {
     padding-top: 3vw;
     margin-left: 2vh;
     margin-right: 3vh;
-   
 }
 
-#contenedor{
+#contenedor {
     margin-top: 5rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
+
 .card {
     max-width: 20rem;
     margin-left: 3vh;
     margin-right: 3vh;
     height: 33rem;
-    margin-top: 3vh;
+    margin-top: 2vh;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
 }
 
-.text_complement{
+.card:hover {
+    transform: scale(1.03);
+}
+
+.card-img {
+    width: 100%;
+    object-fit: cover;
+    height: 40%;
+    border-bottom: 3px solid #17a2b8; 
+}
+
+.card-body {
+    background-color: #343a40;
+    color: #f8f9fa; 
+    padding: 20px;
+}
+
+.text_complement {
     margin-bottom: 3px;
 }
 
-.card-img{
-    width: 100%;
-    object-fit: cover;
-   height: 40%;
-}
-
-.footer{
+.footer {
     padding-left: 5vh;
     padding-right: 5vh;
     margin-top: 5vh;
     background-color: #de757169;
 }
-.image-social-media{
+
+.image-social-media {
     width: 50px;
     margin: 8px;
 }
-main{
+
+main {
     min-height: 79vh;
 }
-.button_contact{
+
+.button_contact {
     margin-left: 24vh;
 }
-.table{
+
+.table {
     margin-top: 5vh;
 }
 
-.image_stats{
-width: 5px;
+.image_stats {
+    width: 5px;
 }
-.main-card{
+
+.main-card {
     height: 42%;
 }
+
+.card-body .fw-bold {
+    color: #17a2b8;
+}
+
+.card-body p {
+    margin-bottom: 10px;
+}
+
+.card .btn-primary {
+    background-color: #ff69b4;
+    border-color: #ff69b4;
+}
+
+.card .btn-primary:hover {
+    background-color: #ff85c9;
+    border-color: #ff85c9;
+}
+
+
+body {
+    background-color: #343a40; 
+    color: #f8f9fa; 
+}
+.navbar {
+    background-color: #343a40; 
+    padding: 10px;
+}
+
+.nav-link {
+    color: #f8f9fa; 
+}
+
+.nav-link:hover {
+    color: #ff69b4; 
+    font-weight: bold;
+}
+.image_banner{
+    height: 35vh;
+}
+

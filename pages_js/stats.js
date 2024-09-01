@@ -73,7 +73,7 @@ function fillCategoryStatsTable(events, type) {
         tableContent += `
             <tr>
                 <td>${category}</td>
-                <td>${totalRevenue.toLocaleString('es-ES')}</td>
+                <td>$ ${totalRevenue.toLocaleString('es-ES')}</td>
                 <td>${averageAttendancePercentage.toFixed(2)}%</td>
             </tr>`;
     });

@@ -1,0 +1,65 @@
+body {
+    background-color: #1a1a1a; 
+    color: #f8f9fa; 
+}
+
+.card {
+    background: linear-gradient(135deg, #212529, #343a40);
+    border-radius: 15px;
+    border: 2px solid #17a2b8;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.card-body {
+    background-color: transparent;
+}
+
+.text-fuchsia {
+    color: #ff69b4;
+}
+
+.text-muted {
+    color: #adb5bd;
+}
+
+#event-image {
+    height: 230px;
+    object-fit: contain;
+    border-radius: 10px;
+    border-bottom: 3px solid #17a2b8;
+}
+
+.gradient-card {
+    background: linear-gradient(135deg, #17a2b8, #ff69b4);
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+.gradient-card:hover {
+    transform: scale(1.05);
+}
+
+.gradient-card .card-body {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5));
+    border-radius: 0 0 15px 15px;
+    padding: 20px;
+}
+.navbar {
+    background-color: #343a40; 
+    padding: 10px;
+}
+
+.nav-link {
+    color: #f8f9fa; 
+}
+
+.nav-link:hover {
+    color: #ff69b4; 
+    font-weight: bold;
+}
+.image_logo_details{
+    width: 300px;
+}

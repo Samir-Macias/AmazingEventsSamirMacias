@@ -17,25 +17,26 @@ export function crearTarjetas(eventosFiltrados) {
         let tarjetas = document.createElement("div");
         tarjetas.className = "tarjetas";
         tarjetas.innerHTML = `
-            <div class="card d-flex justify-content-center mt3 border-info bg-secondary text-light">
-                <img src="${event.image}" class="card-img " alt="Not found">
-                <div class="card-body">
-                    <div class="main-card">
-                        <h5 class="card-title fs-4"> ${event.name} </h5>
-                        <p class="card-text fs-6"> ${event.description} </p>
-                    </div>
-                    <div class="fs-6 ">
-                        <p class="card-text mb-0"><span class=" fw-bold">Category:</span> ${event.category}</p>
-                        <p class="card-text mb-0"><span class=" fw-bold">Place:</span> ${event.place}</p>
-                        <p class="card-text mb-0"><span class=" fw-bold">Capacity:</span> ${event.capacity}</p>
-                        <p class="card-text mb-0"><span class=" fw-bold">Date:</span> ${event.date}</p>
-                    </div>
-                    <div class="d-flex justify-content-between mt-2 border-top align-items-center pt-3 border-info border-start-5">
-                        <p class=" mt-2 fw-bold">Price: ${event.price} $ </p>
-                        <a href="../pages/details.html?id=${event._id}" class="btn btn-primary">Details</a>
-                    </div>
-                </div>
-            </div>`;
+            <div class="card d-flex justify-content-center mt-4 border-info bg-secondary text-light">
+    <img src="${event.image}" class="card-img " alt="Not found">
+    <div class="card-body">
+        <div class="main-card">
+            <h5 class="card-title fs-4"> ${event.name} </h5>
+            <p class="card-text fs-6"> ${event.description} </p>
+        </div>
+        <div class="fs-6 ">
+            <p class="card-text mb-0"><span class=" fw-bold">Category:</span> ${event.category}</p>
+            <p class="card-text mb-0"><span class=" fw-bold">Place:</span> ${event.place}</p>
+            <p class="card-text mb-0"><span class=" fw-bold">Capacity:</span> ${event.capacity.toLocaleString('es-ES')}</p>
+            <p class="card-text mb-0"><span class=" fw-bold">Date:</span> ${event.date}</p>
+        </div>
+        <div class="d-flex justify-content-between mt-2 border-top align-items-center pt-3 border-info border-start-5">
+            <p class=" mt-2 fw-bold">Price: ${event.price} $ </p>
+            <a href="../pages/details.html?id=${event._id}" class="btn btn-primary">Details</a>
+        </div>
+    </div>
+</div>
+`;
         contenedor.appendChild(tarjetas);
     });
 }
@@ -55,7 +56,7 @@ export function createCheckboxes(categories) {
 
         let checkbox = document.createElement("input");
         checkbox.type = "checkbox";
-        checkbox.className = "form-check-input";
+        checkbox.className = "form-check-input me-1";
         checkbox.value = category;
 
         label.appendChild(checkbox);
